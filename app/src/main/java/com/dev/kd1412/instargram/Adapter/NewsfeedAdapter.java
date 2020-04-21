@@ -38,8 +38,8 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<NewsfeedAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Newsfeed newsfeed = arrNewsfeed.get(position);
-        holder.imgAvt.setImageResource(R.drawable.avt);
-        holder.imgContent.setImageResource(R.drawable.content);
+        holder.imgAvt.setImageResource(newsfeed.getImgAvt());
+        holder.imgContent.setImageResource(newsfeed.getImgContent());
         holder.tvName.setText(newsfeed.getUsername());
         holder.tvName1.setText(newsfeed.getUsername());
         holder.tvStatus.setText(newsfeed.getStatus());
@@ -70,6 +70,7 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<NewsfeedAdapter.ViewHo
         Button btnLike;
         Button btnCmt;
         Button btnShare;
+        RecyclerView rcv_content;
 
         public void setItemClickListener(ItemClickListener itemClickListener) {
             this.itemClickListener = itemClickListener;

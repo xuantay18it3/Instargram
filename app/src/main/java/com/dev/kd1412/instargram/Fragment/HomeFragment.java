@@ -32,8 +32,8 @@ public class HomeFragment extends Fragment {
 
         rcvList = view.findViewById(R.id.rcvList);
         arrList = new ArrayList<>();
-        Newsfeed newsfeed = new Newsfeed("avt", "content", "nana",
-                "Chao thang tu");
+        Newsfeed newsfeed = new Newsfeed(R.drawable.avt, R.drawable.content,"__minmin",
+                "chao em co gai thang tu cua anh", null);
         arrList.add(newsfeed);
         arrList.add(newsfeed);
         arrList.add(newsfeed);

@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rcvNewsfeed;
     private NewsfeedAdapter newsfeedAdapter;
     private List<Newsfeed> arr_newsfeed;
+    private HomeFragment homeFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,23 +34,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setWidget() {
-        rcvNewsfeed = findViewById(R.id.rcvNewsfeed);
-        arr_newsfeed = new ArrayList<>();
-        Newsfeed newsfeed = new Newsfeed("avt", "content", "_minminn_", "Chao em co gai thang tu");
-        arr_newsfeed.add(newsfeed);
-        arr_newsfeed.add(newsfeed);
-        arr_newsfeed.add(newsfeed);
-        arr_newsfeed.add(newsfeed);
-        arr_newsfeed.add(newsfeed);
-        arr_newsfeed.add(newsfeed);
-
-        rcvNewsfeed.setHasFixedSize(true);
-        rcvNewsfeed.setLayoutManager(new LinearLayoutManager(this));
-
-        newsfeedAdapter = new NewsfeedAdapter(arr_newsfeed, this);
-
-        rcvNewsfeed.setAdapter(newsfeedAdapter);
-
+        Fragment fragment = new HomeFragment();
+        getFragmentManager().beginTransaction().replace(R.id.fragment, fragment)
+                .addToBackStack(null).setBreadCrumbShortTitle("").commit();
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_nav);
         bottomNavigationView.setOnNavigationItemSelectedListener(listener);
     }
@@ -68,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 default:
                     fragment = new HomeFragment();
             }
-            getFragmentManager().beginTransaction().replace(R.id.nav_content, fragment).addToBackStack(null).setBreadCrumbShortTitle("").commit();
+            getFragmentManager().beginTransaction().replace(R.id.fragment, fragment).addToBackStack(null).setBreadCrumbShortTitle("").commit();
             return true;
         }
     };

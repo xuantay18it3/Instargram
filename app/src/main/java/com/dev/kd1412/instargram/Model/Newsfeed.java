@@ -3,31 +3,33 @@ package com.dev.kd1412.instargram.Model;
 import java.util.List;
 
 public class Newsfeed {
-    private String imgAvt;
-    private String imgContent;
+    private int imgAvt;
+    private int imgContent;
     private String Username;
     private String Status;
+    private String Location;
 
-    public Newsfeed(String imgAvt, String imgContent, String username, String status) {
+    public Newsfeed(int imgAvt, int imgContent, String username, String status, String location) {
         this.imgAvt = imgAvt;
         this.imgContent = imgContent;
-        this.Username = username;
-        this.Status = status;
+        Username = username;
+        Status = status;
+        Location = location;
     }
 
-    public String getImgAvt() {
+    public int getImgAvt() {
         return imgAvt;
     }
 
-    public void setImgAvt(String imgAvt) {
+    public void setImgAvt(int imgAvt) {
         this.imgAvt = imgAvt;
     }
 
-    public String getImgContent() {
+    public int getImgContent() {
         return imgContent;
     }
 
-    public void setImgContent(String imgContent) {
+    public void setImgContent(int imgContent) {
         this.imgContent = imgContent;
     }
 
@@ -45,5 +47,13 @@ public class Newsfeed {
 
     public void setStatus(String status) {
         Status = status;
+    }
+
+    public String getLocation() {
+        return Location;
+    }
+
+    public void setLocation(String location) {
+        Location = location;
     }
 }
